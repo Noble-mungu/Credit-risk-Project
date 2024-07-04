@@ -15,15 +15,16 @@ You can install these dependencies using pip:
 `
 pip install numpy matplotlib scikit-learn
 `
+
 ## Model Building
 The model building process involves creating three different classifiers:
 
-Logistic Regression
-K-Nearest Neighbors (KNN)
-Random Forest
+Logistic Regression<\br>
+K-Nearest Neighbors (KNN)<\br>
+Random Forest<\br>
 These classifiers are evaluated using cross-validation to ensure robustness and avoid overfitting.
 
-`
+```
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
@@ -42,7 +43,7 @@ model_names = ['Logistic Regression', 'KNN', 'Random Forest']
 # Lists to store results
 results, mean_results, predictions, f1_test_scores = [], [], [], []
 
-`
+```
 
 ## Model Fitting, Cross-Validation, and Performance Evaluation
 The `algor` function performs the following steps for each model:
@@ -53,7 +54,7 @@ The `algor` function performs the following steps for each model:
 * Evaluates the model using the F1 score.
 * Stores and prints the results.
 
-`
+```
 from sklearn.metrics import f1_score
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_val_score, StratifiedKFold, cross_val_predict
@@ -90,12 +91,12 @@ def algor(model, model_name):
 for model, model_name in zip(models, model_names):
     algor(model, model_name)
 
-`
+```
 
 ## Model Comparison and Visualization
 Finally, the performance of the models is compared and visualized using a box plot of the F1 scores from cross-validation.
 
-`
+```
 import matplotlib.pyplot as plt
 
 # Visualize model performance
@@ -106,4 +107,4 @@ plt.xlabel('Models')
 plt.ylabel('F1 Score')
 plt.boxplot(results, labels=model_names, showmeans=True)
 plt.show()
-`
+```
